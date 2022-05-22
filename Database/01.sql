@@ -1,8 +1,0 @@
-USE master
-GO
-
-DROP DATABASE IF EXISTS DatabaseFirstDemo
-GO
-
-CREATE DATABASE DatabaseFirstDemo
-GO

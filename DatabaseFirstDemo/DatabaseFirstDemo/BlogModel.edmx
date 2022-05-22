@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DatabaseFirstDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Post">
+        <EntityType Name="Posts">
           <Key>
             <PropertyRef Name="PostID" />
           </Key>
@@ -15,7 +15,7 @@
           <Property Name="Body" Type="varchar" MaxLength="8000" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DatabaseFirstDemoModelStoreContainer">
-          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -42,7 +42,7 @@
         <EntityContainerMapping StorageEntityContainer="DatabaseFirstDemoModelStoreContainer" CdmEntityContainer="DatabaseFirstDemoEntities">
           <EntitySetMapping Name="Posts">
             <EntityTypeMapping TypeName="DatabaseFirstDemoModel.Post">
-              <MappingFragment StoreEntitySet="Post">
+              <MappingFragment StoreEntitySet="Posts">
                 <ScalarProperty Name="PostID" ColumnName="PostID" />
                 <ScalarProperty Name="DatePublished" ColumnName="DatePublished" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
