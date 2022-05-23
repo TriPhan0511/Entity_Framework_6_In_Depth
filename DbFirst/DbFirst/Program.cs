@@ -12,7 +12,6 @@ namespace DbFirst
         {
             // Create a PlutoDbContext instance
             var dbContext = new PlutoDbContext();
-
         }
 
         //static void Main(string[] args)

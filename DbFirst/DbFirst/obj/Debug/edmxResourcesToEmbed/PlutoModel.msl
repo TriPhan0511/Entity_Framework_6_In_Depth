@@ -77,7 +77,7 @@
       </EndProperty>
     </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="DeleteCourse" FunctionName="PlutoModel.Store.DeleteCourse" />
-    <FunctionImportMapping FunctionImportName="funcGetAuthorCourses" FunctionName="PlutoModel.Store.funcGetAuthorCourses">
+    <FunctionImportMapping FunctionImportName="GetAuthorCourses" FunctionName="PlutoModel.Store.funcGetAuthorCourses">
       <ResultMapping>
         <ComplexTypeMapping TypeName="PlutoModel.funcGetAuthorCourses_Result">
           <ScalarProperty Name="CourseID" ColumnName="CourseID" />
@@ -92,7 +92,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GetCourses" FunctionName="PlutoModel.Store.GetCourses">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="PlutoModel.GetCourses_Result">
+        <ComplexTypeMapping TypeName="PlutoModel.GetCoursesResult">
           <ScalarProperty Name="CourseID" ColumnName="CourseID" />
           <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
           <ScalarProperty Name="Title" ColumnName="Title" />

@@ -16,7 +16,7 @@
     <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="8000" Nullable="false" />
     <Property Name="FullPrice" Type="smallint" Nullable="false" />
-    <Property Name="Level" Type="tinyint" Nullable="false" />
+    <Property Name="Level" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="CourseSections">
     <Key>
