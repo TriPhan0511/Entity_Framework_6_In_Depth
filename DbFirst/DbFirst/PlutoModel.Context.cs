@@ -31,18 +31,8 @@ namespace DbFirst
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<CourseSection> CourseSections { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
-    
-        public virtual int DeleteCourse(Nullable<int> courseID)
-        {
-            var courseIDParameter = courseID.HasValue ?
-                new ObjectParameter("CourseID", courseID) :
-                new ObjectParameter("CourseID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteCourse", courseIDParameter);
-        }
     
         [DbFunction("PlutoDbContext", "GetAuthorCourses")]
         public virtual IQueryable<funcGetAuthorCourses_Result> GetAuthorCourses(Nullable<int> authorID)
@@ -52,6 +42,15 @@ namespace DbFirst
                 new ObjectParameter("AuthorID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<funcGetAuthorCourses_Result>("[PlutoDbContext].[GetAuthorCourses](@AuthorID)", authorIDParameter);
+        }
+    
+        public virtual int DeleteCourse(Nullable<int> courseID)
+        {
+            var courseIDParameter = courseID.HasValue ?
+                new ObjectParameter("CourseID", courseID) :
+                new ObjectParameter("CourseID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteCourse", courseIDParameter);
         }
     
         public virtual ObjectResult<GetCoursesResult> GetCourses()

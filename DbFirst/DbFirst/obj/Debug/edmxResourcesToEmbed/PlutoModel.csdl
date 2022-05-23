@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="PlutoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="funcGetAuthorCourses_Result">
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="AuthorID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Int16" Nullable="false" />
+    <Property Name="LevelString" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Level" Type="Byte" Nullable="false" />
+  </ComplexType>
   <EntityType Name="Author">
     <Key>
       <PropertyRef Name="AuthorID" />
@@ -16,7 +25,7 @@
     <Property Name="AuthorID" Type="Int32" Nullable="false" />
     <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Level" Type="Byte" />
+    <Property Name="Level" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Author" Relationship="Self.FK_Courses_Authors" FromRole="Courses" ToRole="Authors" />
     <NavigationProperty Name="CourseSections" Relationship="Self.FK_CourseSections_Courses" FromRole="Courses" ToRole="CourseSections" />
     <NavigationProperty Name="Tags" Relationship="Self.CourseTags" FromRole="Courses" ToRole="Tags" />
@@ -39,16 +48,6 @@
     <Property Name="DatePublished" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Body" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Tag">
     <Key>
@@ -103,7 +102,6 @@
     <EntitySet Name="Courses" EntityType="PlutoModel.Course" />
     <EntitySet Name="CourseSections" EntityType="Self.CourseSection" />
     <EntitySet Name="Posts" EntityType="Self.Post" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Tags" EntityType="Self.Tag" />
     <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
     <AssociationSet Name="FK_Courses_Authors" Association="Self.FK_Courses_Authors">
@@ -118,11 +116,11 @@
       <End Role="Courses" EntitySet="Courses" />
       <End Role="Tags" EntitySet="Tags" />
     </AssociationSet>
-    <FunctionImport Name="DeleteCourse">
-      <Parameter Name="CourseID" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="GetAuthorCourses" IsComposable="true" ReturnType="Collection(PlutoModel.funcGetAuthorCourses_Result)">
       <Parameter Name="AuthorID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteCourse">
+      <Parameter Name="CourseID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="GetCourses" ReturnType="Collection(PlutoModel.GetCoursesResult)" />
     <FunctionImport Name="InsertCourse">
@@ -141,21 +139,12 @@
       <Parameter Name="Level" Mode="In" Type="Byte" />
     </FunctionImport>
   </EntityContainer>
-  <ComplexType Name="funcGetAuthorCourses_Result">
-    <Property Type="Int32" Name="CourseID" Nullable="false" />
-    <Property Type="Int32" Name="AuthorID" Nullable="false" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" />
-    <Property Type="String" Name="Description" Nullable="false" MaxLength="8000" />
-    <Property Type="Int16" Name="Price" Nullable="false" />
-    <Property Type="String" Name="LevelString" Nullable="false" MaxLength="50" />
-    <Property Type="Byte" Name="Level" Nullable="false" />
-  </ComplexType>
   <ComplexType Name="GetCoursesResult">
     <Property Type="Int32" Name="CourseID" Nullable="false" />
     <Property Type="Int32" Name="AuthorID" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="255" />
     <Property Type="String" Name="Description" Nullable="false" MaxLength="8000" />
     <Property Type="Int16" Name="FullPrice" Nullable="false" />
-    <Property Type="Byte" Name="Level" Nullable="false" />
+    <Property Type="String" Name="Level" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

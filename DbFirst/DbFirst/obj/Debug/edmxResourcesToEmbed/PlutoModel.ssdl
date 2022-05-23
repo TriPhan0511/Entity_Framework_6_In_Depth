@@ -43,16 +43,6 @@
     <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Body" Type="varchar" MaxLength="8000" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Tags">
     <Key>
       <PropertyRef Name="TagID" />
@@ -165,7 +155,6 @@
     <EntitySet Name="CourseSections" EntityType="Self.CourseSections" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CourseTags" EntityType="Self.CourseTags" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Courses_Authors" Association="Self.FK_Courses_Authors">
