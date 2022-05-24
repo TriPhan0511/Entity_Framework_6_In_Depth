@@ -1,3 +1,4 @@
+---- 1st iteration
 USE master
 GO
 
@@ -51,7 +52,7 @@ ALTER TABLE dbo.VideoGenres
 	ON DELETE CASCADE
 GO
 
----- 5. Create a stored procedure
+---- 5.1 Create a stored procedure 
 CREATE OR ALTER PROCEDURE [dbo].[spAddVideo]
 (
 	@Name VARCHAR(255),
@@ -87,49 +88,36 @@ VALUES
 GO
 
 -------------------------------------------------------------------------------------------------
----- NEW
+------ 2nd iteration
 
----- Create a stored procedure to get all videos
-CREATE OR ALTER PROCEDURE spGetVideos
-AS
-	SELECT vi.Id, vi.Name, vi.RealeaseDate, ge.Name Genre
-	FROM Videos vi INNER JOIN  VideoGenres vg ON vg.VideoId = vi.Id
-		INNER JOIN Genres ge ON ge.Id = vg.GenreId
+---- Add a new NULLABLE TINYINT column to the "Videos" table called GenreId.
+ALTER TABLE dbo.Videos
+	ADD GenreId TINYINT NULL
+
+---- Edit the records in the table and assign them a genre
+UPDATE dbo.Videos SET GenreId = 1 WHERE Id = 1
+UPDATE dbo.Videos SET GenreId = 2 WHERE Id = 2
+UPDATE dbo.Videos SET GenreId = 3 WHERE Id = 3
+UPDATE dbo.Videos SET GenreId = 4 WHERE Id = 4
+UPDATE dbo.Videos SET GenreId = 5 WHERE Id = 5
+UPDATE dbo.Videos SET GenreId = 6 WHERE Id = 6
+
+---- Remove the NULLABLE attribute from the "GenreId" column in the "Videos" table
+ALTER TABLE Videos
+	ALTER COLUMN GenreId TINYINT NOT NULL
+
+---- Create a relationship between "Genres" and "Videos" tables
+ALTER TABLE Videos
+	ADD CONSTRAINT FK_Videos_Genres FOREIGN KEY (GenreId)
+		REFERENCES Genres (Id)
+
+---- Drop the "VideosGenres" table
+DROP TABLE VideoGenres
 GO
 
----- Create a stored procedure to delete all videos
-CREATE OR ALTER PROCEDURE spDeleteAllVideos
-AS
-	DELETE FROM Videos
-	DBCC CHECKIDENT ('Videos', RESEED, 0) -- Reset the "Id" column of the "Videos" table
-GO
-
----- Create a stored procedure to delete a video based on its id.
-CREATE OR ALTER PROCEDURE spDeleteAVideo
+---- Modify the procedure after deleting the "VideoGenres" table
+CREATE OR ALTER PROCEDURE [dbo].[spAddVideo]
 (
-	@Id INT
-)
-AS
-	DELETE FROM Videos 
-	WHERE Id = @Id
-GO
-
----- Create a stored procedure to update a video based on its id.
-CREATE OR ALTER PROCEDURE spUpdateAVideoNameBasedOnId
-(
-	@Id INT,
-	@Name VARCHAR(255)
-)
-AS
-	UPDATE Videos
-	SET Name = @Name
-	WHERE Id = @Id
-GO
-
----- Create a stored procedure to update a video based on its id.
-CREATE OR ALTER PROCEDURE spUpdateAVideoBasedOnId
-(
-	@Id INT,
 	@Name VARCHAR(255),
 	@ReleaseDate DATETIME,
 	@Genre VARCHAR(255)
@@ -140,14 +128,37 @@ AS
 
 	IF @GenreId IS NOT NULL
 	BEGIN
-		UPDATE Videos
-		SET Name = @Name,
-			RealeaseDate = @ReleaseDate
-		WHERE Id = @Id
-
-		UPDATE VideoGenres
-		SET @GenreId = @GenreId
-		WHERE VideoId = @Id
+		INSERT INTO Videos(Name, RealeaseDate, GenreId)
+		VALUES (@Name, @ReleaseDate, @GenreId)
 	END
 GO
+---------------------------------------------------------------------------------------------------
+------ 3rd iteration
+
+---- Add a new column (named Classification) with a default value (1) to the "Videos" table
+ALTER TABLE dbo.Videos
+	ADD [Classification] TINYINT NOT NULL
+	CONSTRAINT Default_Classification DEFAULT 1
+GO
+
+---- Modify the procedure after adding the "Classification" column to the "Videos" table
+CREATE OR ALTER PROCEDURE [dbo].[spAddVideo]
+(
+	@Name VARCHAR(255),
+	@ReleaseDate DATETIME,
+	@Genre VARCHAR(255),
+	@Classification TINYINT
+)
+AS
+	DECLARE @GenreId TINYINT
+	SET @GenreId = (SELECT Id FROM Genres WHERE Name = @Genre)
+
+	IF @GenreId IS NOT NULL
+	BEGIN
+		INSERT INTO Videos(Name, RealeaseDate, GenreId, [Classification])
+		VALUES (@Name, @ReleaseDate, @GenreId, @Classification)
+	END
+GO
+
+
 

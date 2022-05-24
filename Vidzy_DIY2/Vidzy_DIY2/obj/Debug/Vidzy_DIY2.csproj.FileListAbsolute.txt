@@ -1,0 +1,13 @@
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\bin\Debug\Vidzy_DIY2.exe.config
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\bin\Debug\Vidzy_DIY2.exe
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\bin\Debug\Vidzy_DIY2.pdb
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\bin\Debug\EntityFramework.dll
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\bin\Debug\EntityFramework.SqlServer.dll
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\bin\Debug\EntityFramework.xml
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\bin\Debug\EntityFramework.SqlServer.xml
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\obj\Debug\Vidzy_DIY2.csproj.AssemblyReference.cache
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\obj\Debug\Vidzy_DIY2.csproj.SuggestedBindingRedirects.cache
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\obj\Debug\Vidzy_DIY2.csproj.CoreCompileInputs.cache
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\obj\Debug\Vidzy_DIY2.csproj.CopyComplete
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\obj\Debug\Vidzy_DIY2.exe
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\Vidzy_DIY2\Vidzy_DIY2\obj\Debug\Vidzy_DIY2.pdb
