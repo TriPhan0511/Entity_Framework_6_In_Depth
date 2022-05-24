@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Vidzy_DIYModelStoreContainer" CdmEntityContainer="VidzyDbContext">
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="Vidzy_DIYModel.Genre">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="Vidzy_DIYModel.Video">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RealeaseDate" ColumnName="RealeaseDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="VideoGenres" TypeName="Vidzy_DIYModel.VideoGenres" StoreEntitySet="VideoGenres">
+      <EndProperty Name="Genres">
+        <ScalarProperty Name="Id" ColumnName="GenreId" />
+      </EndProperty>
+      <EndProperty Name="Videos">
+        <ScalarProperty Name="Id" ColumnName="VideoId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="AddVideo" FunctionName="Vidzy_DIYModel.Store.spAddVideo" />
+    <FunctionImportMapping FunctionImportName="GetVideos" FunctionName="Vidzy_DIYModel.Store.spGetVideos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Vidzy_DIYModel.GetVideosResult">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RealeaseDate" ColumnName="RealeaseDate" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteAllVideos" FunctionName="Vidzy_DIYModel.Store.spDeleteAllVideos" />
+  </EntityContainerMapping>
+</Mapping>
