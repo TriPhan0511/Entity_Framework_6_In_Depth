@@ -113,3 +113,41 @@ AS
 	DELETE FROM Videos 
 	WHERE Id = @Id
 GO
+
+---- Create a stored procedure to update a video based on its id.
+CREATE OR ALTER PROCEDURE spUpdateAVideoNameBasedOnId
+(
+	@Id INT,
+	@Name VARCHAR(255)
+)
+AS
+	UPDATE Videos
+	SET Name = @Name
+	WHERE Id = @Id
+GO
+
+---- Create a stored procedure to update a video based on its id.
+CREATE OR ALTER PROCEDURE spUpdateAVideoBasedOnId
+(
+	@Id INT,
+	@Name VARCHAR(255),
+	@ReleaseDate DATETIME,
+	@Genre VARCHAR(255)
+)
+AS
+	DECLARE @GenreId TINYINT
+	SET @GenreId = (SELECT Id FROM Genres WHERE Name = @Genre)
+
+	IF @GenreId IS NOT NULL
+	BEGIN
+		UPDATE Videos
+		SET Name = @Name,
+			RealeaseDate = @ReleaseDate
+		WHERE Id = @Id
+
+		UPDATE VideoGenres
+		SET @GenreId = @GenreId
+		WHERE VideoId = @Id
+	END
+GO
+

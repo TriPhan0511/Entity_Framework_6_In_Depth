@@ -32,6 +32,23 @@ namespace Vidzy_DIY
 
             // Print out all videos in the database
             DisplayVideos(dbContext);
+
+            //// Update a video based on its id
+            //int videoId = 2;
+            //string newVideoName = "A NEW FILM";
+            //DateTime newReleaseDate = DateTime.Now;
+            //string newGenre = "family";
+            //dbContext.UpdateAVideoBasedOnId(videoId, newVideoName, newReleaseDate, newGenre);
+
+            // Update a video based on its id
+            int videoId = 3;
+            string newVideoName = "A NEW FILM";
+            DateTime newReleaseDate = DateTime.Now;
+            string newGenre = "invalid";
+            dbContext.UpdateAVideoBasedOnId(videoId, newVideoName, newReleaseDate, newGenre);
+
+            // Print out all videos in the database
+            DisplayVideos(dbContext);
         }
 
         private static void DisplayVideos(VidzyDbContext dbContext)

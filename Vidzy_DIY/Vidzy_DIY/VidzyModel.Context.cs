@@ -65,5 +65,26 @@ namespace Vidzy_DIY
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteAVideo", idParameter);
         }
+    
+        public virtual int UpdateAVideoBasedOnId(Nullable<int> id, string name, Nullable<System.DateTime> releaseDate, string genre)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var releaseDateParameter = releaseDate.HasValue ?
+                new ObjectParameter("ReleaseDate", releaseDate) :
+                new ObjectParameter("ReleaseDate", typeof(System.DateTime));
+    
+            var genreParameter = genre != null ?
+                new ObjectParameter("Genre", genre) :
+                new ObjectParameter("Genre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateAVideoBasedOnId", idParameter, nameParameter, releaseDateParameter, genreParameter);
+        }
     }
 }

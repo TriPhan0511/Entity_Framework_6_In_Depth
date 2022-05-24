@@ -66,6 +66,12 @@
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
         <Function Name="spGetVideos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spUpdateAVideoBasedOnId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="ReleaseDate" Type="datetime" Mode="In" />
+          <Parameter Name="Genre" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="Vidzy_DIYModelStoreContainer">
           <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoGenres" EntityType="Self.VideoGenres" Schema="dbo" store:Type="Tables" />
@@ -119,7 +125,13 @@
           <FunctionImport Name="GetVideos" ReturnType="Collection(Vidzy_DIYModel.GetVideosResult)" />
           <FunctionImport Name="DeleteAllVideos" />
           <FunctionImport Name="DeleteAVideo">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateAVideoBasedOnId">
             <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="ReleaseDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Genre" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetVideosResult">
@@ -172,6 +184,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="DeleteAllVideos" FunctionName="Vidzy_DIYModel.Store.spDeleteAllVideos" />
           <FunctionImportMapping FunctionImportName="DeleteAVideo" FunctionName="Vidzy_DIYModel.Store.spDeleteAVideo" />
+          <FunctionImportMapping FunctionImportName="UpdateAVideoBasedOnId" FunctionName="Vidzy_DIYModel.Store.spUpdateAVideoBasedOnId" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
