@@ -38,5 +38,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="DeleteAllVideos" FunctionName="Vidzy_DIYModel.Store.spDeleteAllVideos" />
+    <FunctionImportMapping FunctionImportName="DeleteAVideo" FunctionName="Vidzy_DIYModel.Store.spDeleteAVideo" />
   </EntityContainerMapping>
 </Mapping>

@@ -56,5 +56,14 @@ namespace Vidzy_DIY
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteAllVideos");
         }
+    
+        public virtual int DeleteAVideo(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteAVideo", idParameter);
+        }
     }
 }

@@ -104,4 +104,12 @@ AS
 	DBCC CHECKIDENT ('Videos', RESEED, 0) -- Reset the "Id" column of the "Videos" table
 GO
 
-EXEC  spDeleteAllVideos
+---- Create a stored procedure to delete a video based on its id.
+CREATE OR ALTER PROCEDURE spDeleteAVideo
+(
+	@Id INT
+)
+AS
+	DELETE FROM Videos 
+	WHERE Id = @Id
+GO

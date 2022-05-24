@@ -12,12 +12,23 @@ namespace Vidzy_DIY
         {
             // Create a VidzyDbContext instance
             VidzyDbContext dbContext = new VidzyDbContext();
-            
+
             //// Delete all videos in the database
             //dbContext.DeleteAllVideos();
 
             //// Insert some videos to the database
             //CreateVideos(dbContext);
+
+            //// Print out all videos in the database
+            //DisplayVideos(dbContext);
+
+            //// Delete a video based on its id
+            //int videoId = 2;
+            //dbContext.DeleteAVideo(videoId);
+
+            //// Delete a video based on its id
+            //int videoId = 100;
+            //dbContext.DeleteAVideo(videoId);
 
             // Print out all videos in the database
             DisplayVideos(dbContext);

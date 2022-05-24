@@ -57,6 +57,9 @@
     <Parameter Name="Genre" Type="varchar" Mode="In" />
   </Function>
   <Function Name="spDeleteAllVideos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spDeleteAVideo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
   <Function Name="spGetVideos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="Vidzy_DIYModelStoreContainer">
     <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
