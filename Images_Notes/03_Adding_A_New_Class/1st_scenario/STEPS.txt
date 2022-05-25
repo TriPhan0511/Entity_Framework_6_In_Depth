@@ -1,0 +1,5 @@
+1. Create a new class.
+2. Add a DbSet<NewClass> to the context class.
+3. Add migration (add-migration command on Package Manager Console)
+3.1. Edit the migration file (optional): Adding some DbMigration.Sql() method
+4. Update the database (update-database command on Package Manager Console)
