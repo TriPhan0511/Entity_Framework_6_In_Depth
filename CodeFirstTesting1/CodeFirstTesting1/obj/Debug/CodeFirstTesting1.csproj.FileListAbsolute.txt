@@ -1,0 +1,16 @@
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\bin\Debug\CodeFirstTesting1.exe.config
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\bin\Debug\CodeFirstTesting1.exe
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\bin\Debug\CodeFirstTesting1.pdb
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\bin\Debug\EntityFramework.dll
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\bin\Debug\EntityFramework.SqlServer.dll
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\bin\Debug\EntityFramework.xml
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\bin\Debug\EntityFramework.SqlServer.xml
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.csproj.AssemblyReference.cache
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.csproj.SuggestedBindingRedirects.cache
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.csproj.CoreCompileInputs.cache
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.csproj.CopyComplete
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.exe
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.pdb
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.Migrations.InitialModel.resources
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.csproj.GenerateResource.cache
+D:\Studying\DotNet\Entity_Framework_6_In_Depth\CodeFirstTesting1\CodeFirstTesting1\obj\Debug\CodeFirstTesting1.Migrations.CreateCategoryTable.resources
