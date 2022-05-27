@@ -27,6 +27,9 @@ namespace CodeFirstTesting3
         //// (it's a nullabel column in the database, so we use DateTime?)
         //public DateTime? DatePublished { get; set; }
 
+        //// Add a new property named Category
+        //public Category Category { get; set; }
+
         public decimal Price { get; set; }
 
         public int? Author_Id { get; set; }
